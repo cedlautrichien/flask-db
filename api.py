@@ -31,24 +31,24 @@ if not os.path.exists("books.db"):
         db.create_all()
 
 
-@app.route("/add_book_json", methods=["POST"])
-def add_book_json():
-    # POST request for adding book to DB
-    if request.method == "POST":
-        # Getting user-passed data
-        payload = request.get_json()
-        # Creating a book object
-        book = Book(
-            isbn=payload["isbn"], title=payload["title"], author=payload["author"]
-        )
-        # add new book object to DB
-        db.session.add(book)
-
-        # commit db to save changes
-        db.session.commit()
-
-        # return the same book to let the user know that it has been added to the DB
-        return jsonify(json.dumps(payload))
+# @app.route("/add_book_json", methods=["POST"])
+# def add_book_json():
+# POST request for adding book to DB
+#    if request.method == "POST":
+#        # Getting user-passed data
+#        payload = request.get_json()
+#        # Creating a book object
+#        book = Book(
+#            isbn=payload["isbn"], title=payload["title"], author=payload["author"]
+#        )
+#        # add new book object to DB
+#        db.session.add(book)
+#
+#        # commit db to save changes
+#        db.session.commit()
+#
+#        # return the same book to let the user know that it has been added to the DB
+#        return jsonify(json.dumps(payload))
 
 
 @app.route("/get_book_json")
@@ -77,4 +77,4 @@ def endpoints():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=80, debug=False)
+    app.run(host="0.0.0.0", port=8080, debug=False)
