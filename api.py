@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, make_response
+from flask import Flask, request, jsonify, make_response, render_template
 from flask_sqlalchemy import SQLAlchemy
 import os
 import json
@@ -13,11 +13,27 @@ db = SQLAlchemy(app)
 
 # The following code block is used to create a db instance from flask_sqlalchemy and use it to define our Book table.
 # Define a model class
-class Book(db.Model):
+class XML_Message(db.Model):
     # Using ISBN as a primary key
-    isbn = db.Column(db.String(150), primary_key=True)
-    title = db.Column(db.String(150))
-    author = db.Column(db.String(150))
+    SequenceNumeric = db.Column(db.String(150), primary_key=True)
+    Key = db.Column(db.String(150))
+    Value = db.Column(db.String(150))
+    DataType = db.Column(db.String(150))
+    messageSender = db.Column(db.String(150))
+    messageRecipient = db.Column(db.String(150))
+    preparationDateAndTime = db.Column(db.String(150))
+    messageIdentification = db.Column(db.String(150))
+    messageType = db.Column(db.String(150))
+    correlationIdentifier = db.Column(db.String(150))
+    MRN = db.Column(db.String(150))
+    requestDateAndTime = db.Column(db.String(150))
+    initiatedByCustoms = db.Column(db.String(150))
+    justification = db.Column(db.String(150))
+    referenceNumber = db.Column(db.String(150))
+    identificationNumber = db.Column(db.String(150))
+    name = db.Column(db.String(150))
+    phoneNumber = db.Column(db.String(150))
+    eMailAddress = db.Column(db.String(150))
 
     @property
     def as_json(self):
@@ -25,7 +41,7 @@ class Book(db.Model):
         return {"isbn": self.isbn, "title": self.title, "author": self.author}
 
 
-# If the DB doesn't exit recreate it else don't overwrite it
+# If the DB doesn't exist recreate it else don't overwrite it
 if not os.path.exists("books.db"):
     with app.app_context():
         db.create_all()
@@ -51,27 +67,19 @@ if not os.path.exists("books.db"):
 #        return jsonify(json.dumps(payload))
 
 
-@app.route("/get_book_json")
-def get_book_json():
-    # GET request for getting all books from DB
-    if request.method == "GET":
-        # retrieving all the books from DB
-        books = Book.query.all()
-        # serializing objects so that we can send them in a JSON object
-        serialized_books = [book.as_json for book in books]
-        # sending all books back to the client in JSON object
-        return jsonify(serialized_books)
+# @app.route("/get_book_json")
+# def get_book_json():
+# GET request for getting all books from DB
+#    if request.method == "GET":
+# retrieving all the books from DB
+#       books = Book.query.all()
+# serializing objects so that we can send them in a JSON object
+#      serialized_books = [book.as_json for book in books]
+# sending all books back to the client in JSON object
+#     return jsonify(serialized_books)
 
 
-@app.route("/get_book_xml")
-def get_book_xml():
-    xml = "<foo>example</foo>"
-    resp = app.make_response(xml)
-    resp.mimetype = "text/xml"
-    return resp
-
-
-@app.route("/get_014C")
+@app.route("/get_message_xml/014C/")
 def get_014C():
     xml = '<CC014C xmlns:ns2="urn:eds:datamodel:EDS:EDS_EXTENSIONS:1" xmlns:ns3="http://ncts.dgtaxud.ec"><Extensions><SequenceNumeric>1</SequenceNumeric><Key>HolderOfTheTransitProcedureRIN</Key><Value>ATRIN4952418247</Value><DataType>text</DataType></Extensions><messageSender>swp.transit.agent</messageSender><messageRecipient>NTA.AT</messageRecipient><preparationDateAndTime>2024-12-20T15:11:53</preparationDateAndTime><messageIdentification>100788_151153</messageIdentification><messageType>CC014C</messageType><correlationIdentifier>test</correlationIdentifier><TransitOperation><MRN>24AT100000Y5L4I0K0</MRN></TransitOperation><Invalidation><requestDateAndTime>2024-12-20T15:11:53</requestDateAndTime><initiatedByCustoms>0</initiatedByCustoms><justification>darum</justification></Invalidation><CustomsOfficeOfDeparture><referenceNumber>AT100000</referenceNumber></CustomsOfficeOfDeparture><HolderOfTheTransitProcedure><identificationNumber>ATEOS9999999991</identificationNumber><ContactPerson><name>Claus Thorup</name><phoneNumber>2105577890</phoneNumber><eMailAddress>cthor@email.gr</eMailAddress></ContactPerson></HolderOfTheTransitProcedure></CC014C>'
 
@@ -81,8 +89,8 @@ def get_014C():
 
 
 @app.route("/")
-def endpoints():
-    return "Endpoints :" + "GET + /get_book_xml" + "GET + /get_book_json"
+def home():
+    return render_template("index.html")
 
 
 if __name__ == "__main__":
