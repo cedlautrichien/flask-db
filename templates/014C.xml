@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CC014C xmlns:ns2="urn:eds:datamodel:EDS:EDS_EXTENSIONS:1" xmlns:ns3="http://ncts.dgtaxud.ec">
+    
+	<Extensions>
+		<SequenceNumeric>{{object.SequenceNumeric}}</SequenceNumeric>
+		<Key>{{object.Key}}</Key>
+		<Value>{{object.Value}}</Value>
+		<DataType>{{object.DataType}}</DataType>
+	</Extensions>
+	<messageSender>{{object.messageSender}}</messageSender>
+	<messageRecipient>{{object.messageRecipient}}</messageRecipient>
+	<preparationDateAndTime>{{object.preparationDateAndTime}}</preparationDateAndTime>
+	<messageIdentification>{{object.messageIdentification}}</messageIdentification>
+	<messageType>{{object.messageType}}</messageType>
+	<correlationIdentifier>{{object.correlationIdentifier}}</correlationIdentifier>
+	<TransitOperation>
+		<MRN>{{object.MRN}}</MRN>
+	</TransitOperation>
+	<Invalidation>
+		<requestDateAndTime>{{object.requestDateAndTime}}</requestDateAndTime>
+		<initiatedByCustoms>{{object.initiatedByCustoms}}</initiatedByCustoms>
+		<justification>{{object.justification}}</justification>
+	</Invalidation>
+	<CustomsOfficeOfDeparture>
+		<referenceNumber>{{object.referenceNumber}}</referenceNumber>
+	</CustomsOfficeOfDeparture>
+	<HolderOfTheTransitProcedure>
+		<identificationNumber>{{object.identificationNumber}}</identificationNumber>
+		<ContactPerson>
+			<name>{{object.name}}</name>
+			<phoneNumber>{{object.phoneNumber}}</phoneNumber>
+			<eMailAddress>{{object.eMailAddress}}</eMailAddress>
+		</ContactPerson>
+	</HolderOfTheTransitProcedure>
+   
+</CC014C>
