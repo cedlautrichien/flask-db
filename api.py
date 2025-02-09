@@ -1,4 +1,4 @@
-from flask import Flask, request, Response, render_template, jsonify
+from flask import Flask, request, Response, render_template, jsonify, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -79,6 +79,16 @@ def post_json_data():
 @app.route("/")
 def home():
     return render_template("index.html")
+
+# Serve static files (Swagger UI assets)
+@app.route("/static/<path:filename>")
+def static_files(filename):
+    return send_from_directory("static/swagger-ui", filename)
+
+# Serve OpenAPI YAML file
+@app.route("/openapi.yaml")
+def openapi_spec():
+    return send_from_directory("static", "openapi.yaml")
 
 
 if __name__ == "__main__":

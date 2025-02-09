@@ -1,0 +1,71 @@
+openapi: 3.0.0
+info:
+  title: EU Transit Declaration Generator API
+  description: This is a simple message generator for the European project NCTS (New Computerized Transit System) Phase 5.
+  version: 1.0.0
+servers:
+  - url: https://ncts5.monnier.cloud
+paths:
+  /get_static_xml:
+    get:
+      summary: Retrieve static XML data
+      parameters:
+        - name: type
+          in: query
+          required: true
+          schema:
+            type: string
+            example: "014C"
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/xml:
+              schema:
+                type: string
+  
+  /get_dynamic_xml:
+    get:
+      summary: Retrieve dynamic XML data
+      parameters:
+        - name: type
+          in: query
+          required: true
+          schema:
+            type: string
+            example: "014C"
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/xml:
+              schema:
+                type: string
+  
+  /post_json_data:
+    post:
+      summary: Submit JSON data
+      parameters:
+        - name: type
+          in: query
+          required: true
+          schema:
+            type: string
+            example: "014C"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                key:
+                  type: string
+                  example: "value"
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
