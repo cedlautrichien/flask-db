@@ -4,18 +4,25 @@ info:
   description: This is a simple message generator for the European project NCTS (New Computerized Transit System) Phase 5.
   version: 1.0.0
 servers:
+  - url: http://localhost:8080
   - url: https://ncts5.monnier.cloud
+tags:
+- name : messages
+  description: transit messages sent by traders from the External Domain
+
 paths:
-  /get_static_xml:
+  /example_xml:
     get:
-      summary: Retrieve static XML data
+      tags:
+      - messages
+      summary: Retrieve a static example XML message
       parameters:
-        - name: type
+        - name: messageType
           in: query
           required: true
           schema:
             type: string
-            example: "014C"
+            example: "CC014C"
       responses:
         "200":
           description: Successful response
@@ -24,16 +31,31 @@ paths:
               schema:
                 type: string
   
-  /get_dynamic_xml:
+  /dynamic_xml:
     get:
-      summary: Retrieve dynamic XML data
+      tags:
+      - messages
+      summary: Retrieve a dynamic XML message
       parameters:
-        - name: type
+        - name: messageType
           in: query
           required: true
           schema:
             type: string
-            example: "014C"
+            example: "CC014C"
+        - name: MRN
+          in: query
+          required: true
+        - name: holderRIN
+          in: query
+          required: true
+        - name: OoDep
+          in: query
+          required: true
+        - name: holderEORI
+          in: query
+          required: true
+          
       responses:
         "200":
           description: Successful response
@@ -42,30 +64,4 @@ paths:
               schema:
                 type: string
   
-  /post_json_data:
-    post:
-      summary: Submit JSON data
-      parameters:
-        - name: type
-          in: query
-          required: true
-          schema:
-            type: string
-            example: "014C"
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                key:
-                  type: string
-                  example: "value"
-      responses:
-        "200":
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
+  
