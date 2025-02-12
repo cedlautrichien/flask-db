@@ -7,15 +7,15 @@ servers:
   - url: http://localhost:8080
   - url: https://ncts5.monnier.cloud
 tags:
-- name : messages
-  description: transit messages sent by traders from the External Domain
+- name : CC014C messages
+  description: invalidation request from a trader
 
 paths:
-  /example_xml:
+  /generic_xml:
     get:
       tags:
-      - messages
-      summary: Retrieve a static example XML message
+      - CC014C messages
+      summary: Retrieve a generic example XML message in EU format
       parameters:
         - name: messageType
           in: query
@@ -31,11 +31,11 @@ paths:
               schema:
                 type: string
   
-  /dynamic_xml:
+  /austrian_xml:
     get:
       tags:
-      - messages
-      summary: Retrieve a dynamic XML message
+      - CC014C messages
+      summary: Retrieve a dynamic XML message in Austrian format
       parameters:
         - name: messageType
           in: query
@@ -43,19 +43,30 @@ paths:
           schema:
             type: string
             example: "CC014C"
-        - name: MRN
+        - name: MRN_LRN
           in: query
           required: true
+          schema:
+            type: string
+            example: "MRN or LRN"
         - name: holderRIN
           in: query
           required: true
+          schema:
+            type: string
+            example: "RIN of the Holder of Transit Procedure"
         - name: OoDep
           in: query
           required: true
+          schema:
+            type: string
+            example: "Customs Office of Departure"
         - name: holderEORI
           in: query
           required: true
-          
+          schema:
+            type: string
+            example: "EORI Number of the Holder Of Transit Procedure"          
       responses:
         "200":
           description: Successful response

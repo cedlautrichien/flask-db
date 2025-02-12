@@ -22,22 +22,22 @@ app = Flask(__name__)
 #       db.create_all()
 
 
-@app.route("/example_xml")
+@app.route("/generic_xml")
 def get_static_xml():
     message_type = request.args.get("messageType")
     if message_type == "CC014C":
-        xml_content = '<?xml version="1.0" encoding="UTF-8" standalone="yes" ?><CC014C xmlns:ns2="urn:eds:datamodel:EDS:EDS_EXTENSIONS:1" xmlns:ns3="http://ncts.dgtaxud.ec"><Extensions><SequenceNumeric>1</SequenceNumeric><Key>HolderOfTheTransitProcedureRIN</Key><Value>ATRIN4952418247</Value><DataType>text</DataType></Extensions><messageSender>swp.transit.agent</messageSender><messageRecipient>NTA.AT</messageRecipient><preparationDateAndTime>2024-12-20T15:11:53</preparationDateAndTime><messageIdentification>100788_151153</messageIdentification><messageType>CC014C</messageType><correlationIdentifier>test</correlationIdentifier><TransitOperation><MRN>24AT100000Y5L4I0K0</MRN></TransitOperation><Invalidation><requestDateAndTime>2024-12-20T15:11:53</requestDateAndTime><initiatedByCustoms>0</initiatedByCustoms><justification>darum</justification></Invalidation><CustomsOfficeOfDeparture><referenceNumber>AT100000</referenceNumber></CustomsOfficeOfDeparture><HolderOfTheTransitProcedure><identificationNumber>ATEOS9999999991</identificationNumber><ContactPerson><name>Claus Thorup</name><phoneNumber>2105577890</phoneNumber><eMailAddress>cthor@email.gr</eMailAddress></ContactPerson></HolderOfTheTransitProcedure></CC014C>'
+        xml_content = '<?xml version="1.0" encoding="UTF-8" standalone="yes" ?><CC014C xmlns:ns3="http://ncts.dgtaxud.ec"><messageSender>swp.transit.agent</messageSender><messageRecipient>NTA.AT</messageRecipient><preparationDateAndTime>2024-12-20T15:11:53</preparationDateAndTime><messageIdentification>100788151153</messageIdentification><messageType>CC014C</messageType><correlationIdentifier>test</correlationIdentifier><TransitOperation><MRN>24AT100000Y5L4I0K0</MRN></TransitOperation><Invalidation><requestDateAndTime>2024-12-20T15:11:53</requestDateAndTime><initiatedByCustoms>0</initiatedByCustoms><justification>darum</justification></Invalidation><CustomsOfficeOfDeparture><referenceNumber>AT100000</referenceNumber></CustomsOfficeOfDeparture><HolderOfTheTransitProcedure><identificationNumber>ATEOS9999999991</identificationNumber><ContactPerson><name>Claus Thorup</name><phoneNumber>2105577890</phoneNumber><eMailAddress>cthor@email.gr</eMailAddress></ContactPerson></HolderOfTheTransitProcedure></CC014C>'
         resp = Response(xml_content, mimetype="application/xml")
         return resp
     else:
         return "No message template found"
 
 
-@app.route("/dynamic_xml")
+@app.route("/austrian_xml")
 def get_dynamic_xml():
     message_type = request.args.get("messageType")
     holder_rin = request.args.get("holderRIN")
-    mrn = request.args.get("MRN")
+    mrn_lrn = request.args.get("MRN_LRN")
     oodep = request.args.get("OoDep")
     holder_eori = request.args.get("holderEORI")
 
@@ -53,15 +53,15 @@ def get_dynamic_xml():
             "messageIdentification": "100788_151153",
             "messageType": message_type,
             "correlationIdentifier": "test",
-            "MRN": mrn,
+            "MRN": mrn_lrn,
             "requestDateAndTime": "2024-12-20T15:11:53",
             "initiatedByCustoms": "0",
             "justification": "test",
             "referenceNumber": oodep,
             "identificationNumber": holder_eori,
-            "name": "Claus Thorup",
-            "phoneNumber": "2105577890",
-            "eMailAddress": "cthor@email.gr",
+            "name": "test",
+            "phoneNumber": "123456780",
+            "eMailAddress": "test@test.com",
         }
 
         xml_content = render_template("014C.xml", object=object)
