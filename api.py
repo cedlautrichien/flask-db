@@ -67,25 +67,34 @@ def get_dynamic_xml():
         xml_content = render_template("014C.xml", object=object)
         return Response(xml_content, mimetype="application/xml")
 
+    if message_type == "CC007C":
+        object = {
+            "SequenceNumeric": "1",
+            "Key": "HolderOfTheTransitProcedureRIN",
+            "Value": holder_rin,
+            "DataType": "text",
+            "messageSender": "Wirtschaftsbeteiligter",
+            "messageRecipient": "NTA.AT",
+            "preparationDateAndTime": "2024-12-20T15:11:53",
+            "messageIdentification": "100788_151153",
+            "messageType": message_type,
+            "correlationIdentifier": "test",
+            "MRN": mrn_lrn,
+            "requestDateAndTime": "2024-12-20T15:11:53",
+            "initiatedByCustoms": "0",
+            "justification": "test",
+            "referenceNumber": oodep,
+            "identificationNumber": holder_eori,
+            "name": "test",
+            "phoneNumber": "123456780",
+            "eMailAddress": "test@test.com",
+        }
+
+        xml_content = render_template("007C.xml", object=object)
+        return Response(xml_content, mimetype="application/xml")
+
     else:
         return "No message template found"
-
-
-# @app.route("/custom_json", methods=["POST"])
-# def post_json_data():
-#    type = request.args.get("type")
-#    if type == "014C":
-#
-#        if request.is_json:
-#            object = request.get_json()
-#        else:
-#            return jsonify({"error": "Invalid requested, expected JSON"}), 400
-#
-#        xml_content = render_template("014C.xml", object=object)
-#        return Response(xml_content, mimetype="application/xml")
-#
-#    else:
-#        return "No message template found"
 
 
 @app.route("/")
