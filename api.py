@@ -80,9 +80,7 @@ def get_dynamic_xml():
             "messageType": message_type,
             "correlationIdentifier": "test",
             "MRN": mrn_lrn,
-            "requestDateAndTime": "2024-12-20T15:11:53",
-            "initiatedByCustoms": "0",
-            "justification": "test",
+            "arrivalNotificationDateAndTime":"2024-12-20T15:11:53"
             "referenceNumber": oodep,
             "identificationNumber": holder_eori,
             "name": "test",

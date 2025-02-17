@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
-<CC014C xmlns:ns2="urn:eds:datamodel:EDS:EDS_EXTENSIONS:1" xmlns:ns3="http://ncts.dgtaxud.ec"> 
+<ns3:CC014C xmlns:ns2="urn:eds:datamodel:EDS:EDS_EXTENSIONS:1" xmlns:ns3="http://ncts.dgtaxud.ec"> 
 	<Extensions>
-		<SequenceNumeric>{{object.SequenceNumeric}}</SequenceNumeric>
-		<Key>{{object.Key}}</Key>
-		<Value>{{object.Value}}</Value>
-		<DataType>{{object.DataType}}</DataType>
+		<ns2:SequenceNumeric>{{object.SequenceNumeric}}</ns2:SequenceNumeric>
+		<ns2:Key>{{object.Key}}</ns2:Key>
+		<ns2:Value>{{object.Value}}</ns2:Value>
+		<ns2:DataType>{{object.DataType}}</ns2:DataType>
 	</Extensions>
 	<messageSender>{{object.messageSender}}</messageSender>
 	<messageRecipient>{{object.messageRecipient}}</messageRecipient>
@@ -31,4 +31,4 @@
 			<eMailAddress>{{object.eMailAddress}}</eMailAddress>
 		</ContactPerson>
 	</HolderOfTheTransitProcedure>
-</CC014C>
+</ns3:CC014C>
