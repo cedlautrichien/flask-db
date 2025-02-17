@@ -18,27 +18,22 @@
 		<simplifiedProcedure>{{object.simplifiedProcedure}}</simplifiedProcedure>
 		<incidentFlag>{{object.incidentFlag}}</incidentFlag>
 	</TransitOperation>
-	<Authorisation>
-        <sequenceNumber>1</sequenceNumber>
-        <type>C522</type>
-        <referenceNumber>ATACEDBTF991</referenceNumber>
-    </Authorisation>
     <Authorisation>
-        <sequenceNumber>2</sequenceNumber>
-        <type>C520</type>
-        <referenceNumber>ATACTDBTF991</referenceNumber>
+        <sequenceNumber>{{object.sequenceNumber}}</sequenceNumber>
+        <type>{{object.type}}</type>
+        <referenceNumber>{{object.referenceNumber}}</referenceNumber>
     </Authorisation>
 	<CustomsOfficeOfDestinationActual>
-		<referenceNumber>{{object.referenceNumber}}</referenceNumber>
+		<referenceNumber>{{object.referenceNumber2}}</referenceNumber>
 	</CustomsOfficeOfDestinationActual>
 	<TraderAtDestination>
-		<identificationNumber>ATEOS9999999991</identificationNumber>
+		<identificationNumber>{{object.identificationNumber}}</identificationNumber>
 	</TraderAtDestination>
 	<Consignment>
 		<LocationOfGoods>
-			<typeOfLocation>B</typeOfLocation>
-			<qualifierOfIdentification>Y</qualifierOfIdentification>
-			<authorisationNumber>AT0933041103160</authorisationNumber>
+			<typeOfLocation>{{object.typeOfLocation}}</typeOfLocation>
+			<qualifierOfIdentification>{{object.qualifierOfIdentification}}</qualifierOfIdentification>
+			<authorisationNumber>{{object.authorisationNumber}}</authorisationNumber>
 		</LocationOfGoods>
 	</Consignment>
 </ns3:CC007C>

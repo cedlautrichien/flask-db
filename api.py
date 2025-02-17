@@ -37,9 +37,17 @@ def get_static_xml():
 def get_dynamic_xml():
     message_type = request.args.get("messageType")
     holder_rin = request.args.get("holderRIN")
-    mrn_lrn = request.args.get("MRN_LRN")
+    mrn = request.args.get("MRN")
     oodep = request.args.get("OoDep")
     holder_eori = request.args.get("holderEORI")
+    simplified=request.args.get("simplified")
+    authorisation=request.args.get("authorisation")
+    oodes=request.args.get("OoDes")
+    trader_eori=request.args.get("traderEORI")
+    location_type=request.args.get("typeOfLocation")
+    qualifier_id=request.args.get("qualifierID")
+    trader_rin=request.args.get("traderRIN")
+    lid=request.args.get("locationID")
 
     if message_type == "CC014C":
         object = {
@@ -53,7 +61,7 @@ def get_dynamic_xml():
             "messageIdentification": "100788_151153",
             "messageType": message_type,
             "correlationIdentifier": "test",
-            "MRN": mrn_lrn,
+            "MRN": mrn,
             "requestDateAndTime": "2024-12-20T15:11:53",
             "initiatedByCustoms": "0",
             "justification": "test",
@@ -71,7 +79,7 @@ def get_dynamic_xml():
         object = {
             "SequenceNumeric": "1",
             "Key": "HolderOfTheTransitProcedureRIN",
-            "Value": holder_rin,
+            "Value": trader_rin,
             "DataType": "text",
             "messageSender": "Wirtschaftsbeteiligter",
             "messageRecipient": "NTA.AT",
@@ -79,13 +87,18 @@ def get_dynamic_xml():
             "messageIdentification": "100788_151153",
             "messageType": message_type,
             "correlationIdentifier": "test",
-            "MRN": mrn_lrn,
-            "arrivalNotificationDateAndTime":"2024-12-20T15:11:53"
-            "referenceNumber": oodep,
-            "identificationNumber": holder_eori,
-            "name": "test",
-            "phoneNumber": "123456780",
-            "eMailAddress": "test@test.com",
+            "MRN": mrn,
+            "arrivalNotificationDateAndTime":"2024-12-20T15:11:53",
+            "simplifiedProcedure": simplified,
+            "incidentFlag":"0",
+            "sequenceNumber": "1",
+            "type":"C520",
+            "referenceNumber": authorisation,
+            "referenceNumber2": oodes,
+            "identificationNumber": trader_eori,
+            "typeOfLocation":location_type,
+            "qualifierOfIdentification":qualifier_id,
+            "authorisationNumber":lid
         }
 
         xml_content = render_template("007C.xml", object=object)
