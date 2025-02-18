@@ -59,7 +59,7 @@ def get_CC014C():
 @app.route("/CC007C")
 def get_CC007C():
     simplified = request.args.get("simplified")
-    authorisation = request.args.get("authorisationID")
+    authorisation_C520 = request.args.get("authorisationID_C520")
     oodes = request.args.get("OoDes")
     trader_eori = request.args.get("traderEORI")
     location_type = request.args.get("typeOfLocation")
@@ -84,9 +84,9 @@ def get_CC007C():
         "arrivalNotificationDateAndTime": "2024-12-20T15:11:53",
         "simplifiedProcedure": simplified,
         "incidentFlag": "0",
-        "sequenceNumber": "1",
+        "sequenceNumber1": "1",
         "type": "C520",
-        "referenceNumber": authorisation,
+        "referenceNumber1": authorisation_C520,
         "referenceNumber2": oodes,
         "identificationNumber": trader_eori,
         "typeOfLocation": location_type,
@@ -101,8 +101,8 @@ def get_CC007C():
 @app.route("/CC007C_TIR")
 def get_CC007C_TIR():
     simplified = request.args.get("simplified")
-    authorisation1 = request.args.get("authorisationID1")
-    authorisation2 = request.args.get("authorisationID2")
+    authorisation_C520 = request.args.get("authorisationID_C520")
+    authorisation_C522 = request.args.get("authorisationID_C522")
     oodes = request.args.get("OoDes")
     trader_eori = request.args.get("traderEORI")
     location_type = request.args.get("typeOfLocation")
@@ -129,10 +129,10 @@ def get_CC007C_TIR():
         "incidentFlag": "0",
         "sequenceNumber1": "1",
         "type1": "C520",
-        "referenceNumber1": authorisation1,
+        "referenceNumber1": authorisation_C520,
         "sequenceNumber2": "2",
         "type2": "C522",
-        "referenceNumber2": authorisation2,
+        "referenceNumber2": authorisation_C522,
         "referenceNumber3": oodes,
         "identificationNumber": trader_eori,
         "typeOfLocation": location_type,

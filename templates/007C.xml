@@ -19,9 +19,9 @@
 		<incidentFlag>{{object.incidentFlag}}</incidentFlag>
 	</TransitOperation>
     <Authorisation>
-        <sequenceNumber>{{object.sequenceNumber}}</sequenceNumber>
+        <sequenceNumber>{{object.sequenceNumber1}}</sequenceNumber>
         <type>{{object.type}}</type>
-        <referenceNumber>{{object.referenceNumber}}</referenceNumber>
+        <referenceNumber>{{object.referenceNumber1}}</referenceNumber>
     </Authorisation>
 	<CustomsOfficeOfDestinationActual>
 		<referenceNumber>{{object.referenceNumber2}}</referenceNumber>
