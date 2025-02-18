@@ -4,25 +4,73 @@ info:
   description: This is a simple message generator for the European project NCTS (New Computerized Transit System) Phase 5.
   version: 1.0.0
 servers:
-  - url: http://localhost:8080
   - url: https://ncts5.monnier.cloud
 tags:
+- name : CC007C messages
+  description : arrival advice from the trader
 - name : CC014C messages
-  description: invalidation request from a trader
+  description: invalidation request from a holder of procedure
 
 paths:
-  /generic_xml:
+  
+  /CC007C:
     get:
       tags:
-      - CC014C messages
-      summary: Retrieve a generic example XML message in EU format
+      - CC007C messages
+      summary: Retrieve a standard CC007C XML message in Austrian format
       parameters:
         - name: messageType
           in: query
           required: true
           schema:
             type: string
-            example: "CC014C"
+            example: "CC007C"
+        - name: MRN
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: simplified
+          in: query
+          required: true
+          schema:
+            type: string
+            example: "1"
+        - name: authorisationID
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: traderRIN
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: OoDes
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: traderEORI
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: typeOfLocation
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: qualifierID
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: locationID
+          in: query
+          required: true
+          schema:
+            type: string          
       responses:
         "200":
           description: Successful response
@@ -30,12 +78,78 @@ paths:
             application/xml:
               schema:
                 type: string
+
+  /CC007C_TIR:
+    get:
+      tags:
+      - CC007C messages
+      summary: Retrieve a TIR CC007C XML message in Austrian format
+      parameters:
+        - name: messageType
+          in: query
+          required: true
+          schema:
+            type: string
+            example: "CC007C"
+        - name: MRN
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: simplified
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: authorisationID
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: traderRIN
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: OoDes
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: traderEORI
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: typeOfLocation
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: qualifierID
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: locationID
+          in: query
+          required: true
+          schema:
+            type: string          
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/xml:
+              schema:
+                type: string
+
   
-  /austrian_xml:
+  /CC014C:
     get:
       tags:
       - CC014C messages
-      summary: Retrieve a dynamic XML message in Austrian format
+      summary: Retrieve a standard CC014C XML message in Austrian format
       parameters:
         - name: messageType
           in: query
@@ -43,30 +157,26 @@ paths:
           schema:
             type: string
             example: "CC014C"
-        - name: MRN_LRN
+        - name: MRN
           in: query
           required: true
           schema:
             type: string
-            example: "MRN or LRN"
         - name: holderRIN
           in: query
           required: true
           schema:
             type: string
-            example: "RIN of the Holder of Transit Procedure"
         - name: OoDep
           in: query
           required: true
           schema:
             type: string
-            example: "Customs Office of Departure"
         - name: holderEORI
           in: query
           required: true
           schema:
-            type: string
-            example: "EORI Number of the Holder Of Transit Procedure"          
+            type: string          
       responses:
         "200":
           description: Successful response
@@ -74,5 +184,3 @@ paths:
             application/xml:
               schema:
                 type: string
-  
-  

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<ns3:CC007C xmlns:ns2="urn:eds:datamodel:EDS:EDS_EXTENSIONS:1" xmlns:ns3="http://ncts.dgtaxud.ec"> 
+	<Extensions>
+		<ns2:SequenceNumeric>{{object.SequenceNumeric}}</ns2:SequenceNumeric>
+		<ns2:Key>{{object.Key}}</ns2:Key>
+		<ns2:Value>{{object.Value}}</ns2:Value>
+		<ns2:DataType>{{object.DataType}}</ns2:DataType>
+	</Extensions>
+	<messageSender>{{object.messageSender}}</messageSender>
+	<messageRecipient>{{object.messageRecipient}}</messageRecipient>
+	<preparationDateAndTime>{{object.preparationDateAndTime}}</preparationDateAndTime>
+	<messageIdentification>{{object.messageIdentification}}</messageIdentification>
+	<messageType>{{object.messageType}}</messageType>
+	<correlationIdentifier>{{object.correlationIdentifier}}</correlationIdentifier>
+	<TransitOperation>
+		<MRN>{{object.MRN}}</MRN>
+		<arrivalNotificationDateAndTime>{{object.arrivalNotificationDateAndTime}}</arrivalNotificationDateAndTime>
+		<simplifiedProcedure>{{object.simplifiedProcedure}}</simplifiedProcedure>
+		<incidentFlag>{{object.incidentFlag}}</incidentFlag>
+	</TransitOperation>
+    <Authorisation>
+        <sequenceNumber>{{object.sequenceNumber1}}</sequenceNumber>
+        <type>{{object.type1}}</type>
+        <referenceNumber>{{object.referenceNumber1}}</referenceNumber>
+    </Authorisation>
+	<Authorisation>
+        <sequenceNumber>{{object.sequenceNumber2}}</sequenceNumber>
+        <type>{{object.type2}}</type>
+        <referenceNumber>{{object.referenceNumber2}}</referenceNumber>
+    </Authorisation>
+	<CustomsOfficeOfDestinationActual>
+		<referenceNumber>{{object.referenceNumber3}}</referenceNumber>
+	</CustomsOfficeOfDestinationActual>
+	<TraderAtDestination>
+		<identificationNumber>{{object.identificationNumber}}</identificationNumber>
+	</TraderAtDestination>
+	<Consignment>
+		<LocationOfGoods>
+			<typeOfLocation>{{object.typeOfLocation}}</typeOfLocation>
+			<qualifierOfIdentification>{{object.qualifierOfIdentification}}</qualifierOfIdentification>
+			<authorisationNumber>{{object.authorisationNumber}}</authorisationNumber>
+		</LocationOfGoods>
+	</Consignment>
+</ns3:CC007C>
