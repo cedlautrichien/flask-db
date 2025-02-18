@@ -5,7 +5,7 @@ info:
   version: 1.0.0
 servers:
   - url: https://ncts5.monnier.cloud
-  - url: http://localhost:8080
+  
 tags:
 - name : CC007C messages
   description : arrival advice from the trader
