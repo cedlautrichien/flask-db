@@ -1,5 +1,21 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
-<ns3:CC007C xmlns:ns2="urn:eds:datamodel:EDS:EDS_EXTENSIONS:1" xmlns:ns3="http://ncts.dgtaxud.ec"> 
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v01="urn:http://brz.gv.at/ezoll/V01">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <v01:sendMessages>
+            <arrayOfTransitRequestBean_1>
+                <id>1</id>
+                <message><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:Msg xmlns:ns2="http://brz.gv.at/ezoll/V01" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ns2:MsgSdr>swp.transit.agent</ns2:MsgSdr>
+<ns2:MsgRcp>NTA.AT</ns2:MsgRcp>
+<ns2:PrepDT>@_PrepDT;</ns2:PrepDT>
+<ns2:ICRef>@_ICRef;</ns2:ICRef>
+<ns2:Appl>acc</ns2:Appl>
+<ns2:Test>1</ns2:Test>
+<ns2:MsgTyp>CC007C</ns2:MsgTyp>
+<!--_______________________________________End of AT Header_________________________________________-->
+
+<ns4:CC007C xmlns:ns2="urn:eds:datamodel:EDS:EDS_EXTENSIONS:1" xmlns:ns3="http://ncts.dgtaxud.ec"> 
 	<Extensions>
 		<ns2:SequenceNumeric>{{object.SequenceNumeric}}</ns2:SequenceNumeric>
 		<ns2:Key>{{object.Key}}</ns2:Key>
@@ -41,4 +57,13 @@
 			<authorisationNumber>{{object.authorisationNumber}}</authorisationNumber>
 		</LocationOfGoods>
 	</Consignment>
-</ns3:CC007C>
+</ns4:CC007C>
+
+<!--_______________________________________Start of AT Footer_______________________________________-->
+</ns2:Msg>]]>
+                </message>
+                <operatorId>ReleaseTest01</operatorId>
+            </arrayOfTransitRequestBean_1>
+        </v01:sendMessages>
+    </soapenv:Body>
+</soapenv:Envelope>
