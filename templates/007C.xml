@@ -8,8 +8,8 @@
 <ns2:Msg xmlns:ns2="http://brz.gv.at/ezoll/V01" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 <ns2:MsgSdr>swp.transit.agent</ns2:MsgSdr>
 <ns2:MsgRcp>NTA.AT</ns2:MsgRcp>
-<ns2:PrepDT>@_PrepDT;</ns2:PrepDT>
-<ns2:ICRef>@_ICRef;</ns2:ICRef>
+<ns2:PrepDT>{{object.PrepDT}}</ns2:PrepDT>
+<ns2:ICRef>{{object.ICRef}}</ns2:ICRef>
 <ns2:Appl>acc</ns2:Appl>
 <ns2:Test>1</ns2:Test>
 <ns2:MsgTyp>CC007C</ns2:MsgTyp>

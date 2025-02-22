@@ -5,12 +5,15 @@ info:
   version: 1.0.0
 servers:
   - url: https://ncts5.monnier.cloud
+  - url: http://localhost:8080
   
 tags:
 - name : CC007C messages
   description : arrival advice from the trader
+- name : CC044C messages
+  description : unloading remarks from the trader
 - name : CC014C messages
-  description: invalidation request from a holder of procedure
+  description: invalidation request from a holder of transit procedure
 
 paths:
   
@@ -20,23 +23,11 @@ paths:
       - CC007C messages
       summary: Retrieve a standard CC007C XML message in Austrian format
       parameters:
-        - name: messageType
-          in: query
-          required: true
-          schema:
-            type: string
-            example: "CC007C"
         - name: MRN
           in: query
           required: true
           schema:
             type: string
-        - name: simplified
-          in: query
-          required: true
-          schema:
-            type: string
-            example: "1"
         - name: authorisationID_C522
           in: query
           required: true
@@ -57,18 +48,6 @@ paths:
           required: true
           schema:
             type: string
-        - name: typeOfLocation
-          in: query
-          required: true
-          schema:
-            type: string
-            example: "B"
-        - name: qualifierID
-          in: query
-          required: true
-          schema:
-            type: string
-            example: "Y"
         - name: locationID
           in: query
           required: true
@@ -88,23 +67,11 @@ paths:
       - CC007C messages
       summary: Retrieve a TIR CC007C XML message in Austrian format
       parameters:
-        - name: messageType
-          in: query
-          required: true
-          schema:
-            type: string
-            example: "CC007C"
         - name: MRN
           in: query
           required: true
           schema:
             type: string
-        - name: simplified
-          in: query
-          required: true
-          schema:
-            type: string
-            example: "1"
         - name: authorisationID_C520
           in: query
           required: true
@@ -130,23 +97,45 @@ paths:
           required: true
           schema:
             type: string
-        - name: typeOfLocation
-          in: query
-          required: true
-          schema:
-            type: string
-            example: "B"
-        - name: qualifierID
-          in: query
-          required: true
-          schema:
-            type: string
-            example: "Y"
         - name: locationID
           in: query
           required: true
           schema:
             type: string          
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/xml:
+              schema:
+                type: string
+
+  /CC044C:
+    get:
+      tags:
+      - CC044C messages
+      summary: Retrieve a standard CC044C XML message in Austrian format
+      parameters:
+        - name: MRN
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: traderRIN
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: OoDes
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: traderEORI
+          in: query
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: Successful response
@@ -162,12 +151,6 @@ paths:
       - CC014C messages
       summary: Retrieve a standard CC014C XML message in Austrian format
       parameters:
-        - name: messageType
-          in: query
-          required: true
-          schema:
-            type: string
-            example: "CC014C"
         - name: MRN
           in: query
           required: true

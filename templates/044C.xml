@@ -12,15 +12,15 @@
 <ns2:ICRef>{{object.ICRef}}</ns2:ICRef>
 <ns2:Appl>acc</ns2:Appl>
 <ns2:Test>1</ns2:Test>
-<ns2:MsgTyp>CC014C</ns2:MsgTyp>
+<ns2:MsgTyp>CC044C</ns2:MsgTyp>
 <!--_______________________________________End of AT Header_________________________________________-->
 
-<ns3:CC014C xmlns:ns2="urn:eds:datamodel:EDS:EDS_EXTENSIONS:1" xmlns:ns3="http://ncts.dgtaxud.ec"> 
+<ns4:CC044C xmlns:ns4="http://ncts.dgtaxud.ec" xmlns:ns3="urn:eds:datamodel:EDS:EDS_EXTENSIONS:1">
 	<Extensions>
-		<ns2:SequenceNumeric>{{object.SequenceNumeric}}</ns2:SequenceNumeric>
-		<ns2:Key>{{object.Key}}</ns2:Key>
-		<ns2:Value>{{object.Value}}</ns2:Value>
-		<ns2:DataType>{{object.DataType}}</ns2:DataType>
+		<ns3:SequenceNumeric>{{object.SequenceNumeric}}</ns2:SequenceNumeric>
+		<ns3:Key>{{object.Key}}</ns2:Key>
+		<ns3:Value>{{object.Value}}</ns2:Value>
+		<ns3:DataType>{{object.DataType}}</ns2:DataType>
 	</Extensions>
 	<messageSender>{{object.messageSender}}</messageSender>
 	<messageRecipient>{{object.messageRecipient}}</messageRecipient>
@@ -31,23 +31,19 @@
 	<TransitOperation>
 		<MRN>{{object.MRN}}</MRN>
 	</TransitOperation>
-	<Invalidation>
-		<requestDateAndTime>{{object.requestDateAndTime}}</requestDateAndTime>
-		<initiatedByCustoms>{{object.initiatedByCustoms}}</initiatedByCustoms>
-		<justification>{{object.justification}}</justification>
-	</Invalidation>
-	<CustomsOfficeOfDeparture>
+	<CustomsOfficeOfDestinationActual>
 		<referenceNumber>{{object.referenceNumber}}</referenceNumber>
-	</CustomsOfficeOfDeparture>
-	<HolderOfTheTransitProcedure>
+	</CustomsOfficeOfDestinationActual>
+	<TraderAtDestination>
 		<identificationNumber>{{object.identificationNumber}}</identificationNumber>
-		<ContactPerson>
-			<name>{{object.name}}</name>
-			<phoneNumber>{{object.phoneNumber}}</phoneNumber>
-			<eMailAddress>{{object.eMailAddress}}</eMailAddress>
-		</ContactPerson>
-	</HolderOfTheTransitProcedure>
-</ns3:CC014C>
+	</TraderAtDestination>
+    <UnloadingRemark>
+		<conform>{{object.conform}}</conform>
+		<unloadingCompletion>{{object.unloadingCompletion}}</unloadingCompletion>
+		<unloadingDate>{{object.unloadingDate}}</unloadingDate>
+		<stateOfSeals>{{object.stateOfSeals}}</stateOfSeals>
+	</UnloadingRemark>
+</ns4:CC044C>
 
 <!--_______________________________________Start of AT Footer_______________________________________-->
 </ns2:Msg>]]>

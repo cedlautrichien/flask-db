@@ -3,10 +3,37 @@ from flask import (
     request,
     Response,
     render_template,
-    jsonify,
     send_from_directory,
 )
 from flask_sqlalchemy import SQLAlchemy
+
+from datetime import date, datetime
+import random, string
+
+
+# functions to retrieve date, time and generate a reference
+def today():
+    today = date.today()
+    return today
+
+
+def prepdt():
+    today = date.today()
+    today_string = today.strftime("%d%m%Y")
+    return today_string
+
+
+def now():
+    now = datetime.now()
+    dt_string = now.strftime("%Y-%m-%dT%H:%M:%S")
+    return dt_string
+
+
+def randomref():
+    characters = string.ascii_uppercase + string.digits
+    generated_string = "".join(random.choices(characters, k=12))
+    return generated_string
+
 
 app = Flask(__name__)
 
@@ -24,25 +51,32 @@ app = Flask(__name__)
 
 @app.route("/CC014C")
 def get_CC014C():
-    message_type = request.args.get("messageType")
+    # retrieve arguments from request
     holder_rin = request.args.get("holderRIN")
     mrn = request.args.get("MRN")
     oodep = request.args.get("OoDep")
     holder_eori = request.args.get("holderEORI")
 
+    # retrieve date and time and generate reference
+    now_retrieve = now()
+    randomref_generate = randomref()
+    prepdt_generate = prepdt()
+
     object = {
+        "PrepDT": prepdt_generate,
+        "ICRef": randomref_generate,
         "SequenceNumeric": "1",
         "Key": "HolderOfTheTransitProcedureRIN",
         "Value": holder_rin,
         "DataType": "text",
         "messageSender": "Wirtschaftsbeteiligter",
         "messageRecipient": "NTA.AT",
-        "preparationDateAndTime": "2024-12-20T15:11:53",
-        "messageIdentification": "100788_151153",
-        "messageType": message_type,
+        "preparationDateAndTime": now_retrieve,
+        "messageIdentification": randomref_generate,
+        "messageType": "CC014C",
         "correlationIdentifier": "test",
         "MRN": mrn,
-        "requestDateAndTime": "2024-12-20T15:11:53",
+        "requestDateAndTime": now_retrieve,
         "initiatedByCustoms": "0",
         "justification": "test",
         "referenceNumber": oodep,
@@ -58,39 +92,43 @@ def get_CC014C():
 
 @app.route("/CC007C")
 def get_CC007C():
-    simplified = request.args.get("simplified")
+    # retrieve arguments from request
+    trader_rin = request.args.get("traderRIN")
+    mrn = request.args.get("MRN")
     authorisation_C522 = request.args.get("authorisationID_C522")
     oodes = request.args.get("OoDes")
     trader_eori = request.args.get("traderEORI")
-    location_type = request.args.get("typeOfLocation")
-    qualifier_id = request.args.get("qualifierID")
-    trader_rin = request.args.get("traderRIN")
     lid = request.args.get("locationID")
-    message_type = request.args.get("messageType")
-    mrn = request.args.get("MRN")
+
+    # retrieve date and time and generate reference
+    now_retrieve = now()
+    randomref_generate = randomref()
+    prepdt_generate = prepdt()
 
     object = {
+        "PrepDT": prepdt_generate,
+        "ICRef": randomref_generate,
         "SequenceNumeric": "1",
-        "Key": "HolderOfTheTransitProcedureRIN",
+        "Key": "TraderAtDestinationRIN",
         "Value": trader_rin,
         "DataType": "text",
         "messageSender": "Wirtschaftsbeteiligter",
         "messageRecipient": "NTA.AT",
-        "preparationDateAndTime": "2024-12-20T15:11:53",
-        "messageIdentification": "100788_151153",
-        "messageType": message_type,
+        "preparationDateAndTime": now_retrieve,
+        "messageIdentification": randomref_generate,
+        "messageType": "CC007C",
         "correlationIdentifier": "test",
         "MRN": mrn,
-        "arrivalNotificationDateAndTime": "2024-12-20T15:11:53",
-        "simplifiedProcedure": simplified,
+        "arrivalNotificationDateAndTime": now_retrieve,
+        "simplifiedProcedure": "1",
         "incidentFlag": "0",
         "sequenceNumber1": "1",
         "type": "C522",
         "referenceNumber1": authorisation_C522,
         "referenceNumber2": oodes,
         "identificationNumber": trader_eori,
-        "typeOfLocation": location_type,
-        "qualifierOfIdentification": qualifier_id,
+        "typeOfLocation": "B",
+        "qualifierOfIdentification": "Y",
         "authorisationNumber": lid,
     }
 
@@ -100,32 +138,36 @@ def get_CC007C():
 
 @app.route("/CC007C_TIR")
 def get_CC007C_TIR():
-    simplified = request.args.get("simplified")
+    # retrieve arguments from request
+    trader_rin = request.args.get("traderRIN")
+    mrn = request.args.get("MRN")
     authorisation_C520 = request.args.get("authorisationID_C520")
     authorisation_C522 = request.args.get("authorisationID_C522")
     oodes = request.args.get("OoDes")
     trader_eori = request.args.get("traderEORI")
-    location_type = request.args.get("typeOfLocation")
-    qualifier_id = request.args.get("qualifierID")
-    trader_rin = request.args.get("traderRIN")
     lid = request.args.get("locationID")
-    message_type = request.args.get("messageType")
-    mrn = request.args.get("MRN")
+
+    # retrieve date and time and generate reference
+    now_retrieve = now()
+    randomref_generate = randomref()
+    prepdt_generate = prepdt()
 
     object = {
+        "PrepDT": prepdt_generate,
+        "ICRef": randomref_generate,
         "SequenceNumeric": "1",
-        "Key": "HolderOfTheTransitProcedureRIN",
+        "Key": "TraderAtDestinationRIN",
         "Value": trader_rin,
         "DataType": "text",
         "messageSender": "Wirtschaftsbeteiligter",
         "messageRecipient": "NTA.AT",
-        "preparationDateAndTime": "2024-12-20T15:11:53",
-        "messageIdentification": "100788_151153",
-        "messageType": message_type,
+        "preparationDateAndTime": now_retrieve,
+        "messageIdentification": randomref_generate,
+        "messageType": "CC007C",
         "correlationIdentifier": "test",
         "MRN": mrn,
-        "arrivalNotificationDateAndTime": "2024-12-20T15:11:53",
-        "simplifiedProcedure": simplified,
+        "arrivalNotificationDateAndTime": now_retrieve,
+        "simplifiedProcedure": "1",
         "incidentFlag": "0",
         "sequenceNumber1": "1",
         "type1": "C520",
@@ -135,12 +177,52 @@ def get_CC007C_TIR():
         "referenceNumber2": authorisation_C522,
         "referenceNumber3": oodes,
         "identificationNumber": trader_eori,
-        "typeOfLocation": location_type,
-        "qualifierOfIdentification": qualifier_id,
+        "typeOfLocation": "B",
+        "qualifierOfIdentification": "Y",
         "authorisationNumber": lid,
     }
 
     xml_content = render_template("007C_TIR.xml", object=object)
+    return Response(xml_content, mimetype="application/xml")
+
+
+@app.route("/CC044C")
+def get_CC044C():
+    # retrieve arguments from request
+    oodes = request.args.get("OoDes")
+    trader_eori = request.args.get("traderEORI")
+    trader_rin = request.args.get("traderRIN")
+    mrn = request.args.get("MRN")
+
+    # retrieve date and time and generate reference
+    now_retrieve = now()
+    randomref_generate = randomref()
+    today_retrieve = today()
+    prepdt_generate = prepdt()
+
+    object = {
+        "PrepDT": prepdt_generate,
+        "ICRef": randomref_generate,
+        "SequenceNumeric": "1",
+        "Key": "TraderAtDestinationRIN",
+        "Value": trader_rin,
+        "DataType": "text",
+        "messageSender": "Wirtschaftsbeteiligter",
+        "messageRecipient": "NTA.AT",
+        "preparationDateAndTime": now_retrieve,
+        "messageIdentification": randomref_generate,
+        "messageType": "CC044C",
+        "correlationIdentifier": "test",
+        "MRN": mrn,
+        "referenceNumber": oodes,
+        "identificationNumber": trader_eori,
+        "conform": "1",
+        "unloadingCompletion": "1",
+        "unloadingDate": today_retrieve,
+        "stateOfSeals": "1",
+    }
+
+    xml_content = render_template("044C.xml", object=object)
     return Response(xml_content, mimetype="application/xml")
 
 
