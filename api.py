@@ -59,7 +59,7 @@ def get_CC014C():
 @app.route("/CC007C")
 def get_CC007C():
     simplified = request.args.get("simplified")
-    authorisation_C520 = request.args.get("authorisationID_C520")
+    authorisation_C522 = request.args.get("authorisationID_C522")
     oodes = request.args.get("OoDes")
     trader_eori = request.args.get("traderEORI")
     location_type = request.args.get("typeOfLocation")
@@ -85,8 +85,8 @@ def get_CC007C():
         "simplifiedProcedure": simplified,
         "incidentFlag": "0",
         "sequenceNumber1": "1",
-        "type": "C520",
-        "referenceNumber1": authorisation_C520,
+        "type": "C522",
+        "referenceNumber1": authorisation_C522,
         "referenceNumber2": oodes,
         "identificationNumber": trader_eori,
         "typeOfLocation": location_type,
