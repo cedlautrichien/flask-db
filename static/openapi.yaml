@@ -5,7 +5,6 @@ info:
   version: 1.0.0
 servers:
   - url: https://ncts5.monnier.cloud
-  - url: http://localhost:8080
   
 tags:
 - name : CC007C messages
@@ -23,36 +22,36 @@ paths:
       - CC007C messages
       summary: Retrieve a standard CC007C XML message in Austrian format
       parameters:
-        - name: MRN
-          in: query
-          required: true
-          schema:
-            type: string
-        - name: authorisationID_C522
-          in: query
-          required: true
-          schema:
-            type: string
-        - name: traderRIN
-          in: query
-          required: true
-          schema:
-            type: string
-        - name: OoDes
-          in: query
-          required: true
-          schema:
-            type: string
-        - name: traderEORI
-          in: query
-          required: true
-          schema:
-            type: string
-        - name: locationID
-          in: query
-          required: true
-          schema:
-            type: string          
+      - name: traderRIN
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: MRN
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: authorisationID_C522
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: OoDes
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: traderEORI
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: locationID
+        in: query
+        required: true
+        schema:
+          type: string          
       responses:
         "200":
           description: Successful response
@@ -67,41 +66,41 @@ paths:
       - CC007C messages
       summary: Retrieve a TIR CC007C XML message in Austrian format
       parameters:
-        - name: MRN
-          in: query
-          required: true
-          schema:
-            type: string
-        - name: authorisationID_C520
-          in: query
-          required: true
-          schema:
-            type: string
-        - name: authorisationID_C522
-          in: query
-          required: true
-          schema:
-            type: string
-        - name: traderRIN
-          in: query
-          required: true
-          schema:
-            type: string
-        - name: OoDes
-          in: query
-          required: true
-          schema:
-            type: string
-        - name: traderEORI
-          in: query
-          required: true
-          schema:
-            type: string
-        - name: locationID
-          in: query
-          required: true
-          schema:
-            type: string          
+      - name: traderRIN
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: MRN
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: authorisationID_C520
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: authorisationID_C522
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: OoDes
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: traderEORI
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: locationID
+        in: query
+        required: true
+        schema:
+          type: string          
       responses:
         "200":
           description: Successful response
@@ -116,12 +115,12 @@ paths:
       - CC044C messages
       summary: Retrieve a standard CC044C XML message in Austrian format
       parameters:
-        - name: MRN
+        - name: traderRIN
           in: query
           required: true
           schema:
-            type: string
-        - name: traderRIN
+            type: string 
+        - name: MRN
           in: query
           required: true
           schema:
@@ -151,12 +150,12 @@ paths:
       - CC014C messages
       summary: Retrieve a standard CC014C XML message in Austrian format
       parameters:
-        - name: MRN
+        - name: holderRIN
           in: query
           required: true
           schema:
-            type: string
-        - name: holderRIN
+            type: string        
+        - name: MRN
           in: query
           required: true
           schema:
