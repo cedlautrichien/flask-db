@@ -17,10 +17,10 @@
 
 <ns4:CC007C xmlns:ns2="urn:eds:datamodel:EDS:EDS_EXTENSIONS:1" xmlns:ns3="http://ncts.dgtaxud.ec"> 
 	<Extensions>
-		<ns3:SequenceNumeric>{{object.SequenceNumeric}}</ns2:SequenceNumeric>
-		<ns3:Key>{{object.Key}}</ns2:Key>
-		<ns3:Value>{{object.Value}}</ns2:Value>
-		<ns3:DataType>{{object.DataType}}</ns2:DataType>
+		<ns3:SequenceNumeric>{{object.SequenceNumeric}}</ns3:SequenceNumeric>
+		<ns3:Key>{{object.Key}}</ns3:Key>
+		<ns3:Value>{{object.Value}}</ns3:Value>
+		<ns3:DataType>{{object.DataType}}</ns3:DataType>
 	</Extensions>
 	<messageSender>{{object.messageSender}}</messageSender>
 	<messageRecipient>{{object.messageRecipient}}</messageRecipient>

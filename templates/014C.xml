@@ -15,12 +15,12 @@
 <ns2:MsgTyp>CC014C</ns2:MsgTyp>
 <!--_______________________________________End of AT Header_________________________________________-->
 
-<ns3:CC014C xmlns:ns2="urn:eds:datamodel:EDS:EDS_EXTENSIONS:1" xmlns:ns3="http://ncts.dgtaxud.ec"> 
+<ns4:CC014C xmlns:ns2="urn:eds:datamodel:EDS:EDS_EXTENSIONS:1" xmlns:ns3="http://ncts.dgtaxud.ec"> 
 	<Extensions>
-		<ns2:SequenceNumeric>{{object.SequenceNumeric}}</ns2:SequenceNumeric>
-		<ns2:Key>{{object.Key}}</ns2:Key>
-		<ns2:Value>{{object.Value}}</ns2:Value>
-		<ns2:DataType>{{object.DataType}}</ns2:DataType>
+		<ns3:SequenceNumeric>{{object.SequenceNumeric}}</ns3:SequenceNumeric>
+		<ns3:Key>{{object.Key}}</ns3:Key>
+		<ns3:Value>{{object.Value}}</ns3:Value>
+		<ns3:DataType>{{object.DataType}}</ns3:DataType>
 	</Extensions>
 	<messageSender>{{object.messageSender}}</messageSender>
 	<messageRecipient>{{object.messageRecipient}}</messageRecipient>
