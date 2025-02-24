@@ -15,7 +15,7 @@
 <ns2:MsgTyp>CC044C</ns2:MsgTyp>
 <!--_______________________________________End of AT Header_________________________________________-->
 
-<ns4:CC044C xmlns:ns2="http://ncts.dgtaxud.ec" xmlns:ns3="urn:eds:datamodel:EDS:EDS_EXTENSIONS:1">
+<ns4:CC044C xmlns:ns4="http://ncts.dgtaxud.ec" xmlns:ns3="urn:eds:datamodel:EDS:EDS_EXTENSIONS:1">
 	<Extensions>
 		<ns3:SequenceNumeric>{{object.SequenceNumeric}}</ns3:SequenceNumeric>
 		<ns3:Key>{{object.Key}}</ns3:Key>
