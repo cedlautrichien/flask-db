@@ -19,8 +19,11 @@ def today():
 
 def prepdt():
     today = date.today()
-    today_string = today.strftime("%d%m%Y")
-    return today_string
+    today_string = today.strftime("%Y%m%d")
+    characters = string.digits
+    generated_string = "".join(random.choices(characters, k=6))
+    concat = today_string + generated_string
+    return concat
 
 
 def now():

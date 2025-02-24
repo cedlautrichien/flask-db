@@ -6,7 +6,7 @@
                 <id>1</id>
                 <message><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <ns2:Msg xmlns:ns2="http://brz.gv.at/ezoll/V01" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-<ns2:MsgSdr>swp.transit.agent</ns2:MsgSdr>
+<ns2:MsgSdr>Wirtschaftsbeteiligter</ns2:MsgSdr>
 <ns2:MsgRcp>NTA.AT</ns2:MsgRcp>
 <ns2:PrepDT>{{object.PrepDT}}</ns2:PrepDT>
 <ns2:ICRef>{{object.ICRef}}</ns2:ICRef>
