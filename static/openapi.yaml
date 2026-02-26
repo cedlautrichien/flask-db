@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: EU Transit Declaration Generator API
-  description: This is a simple message generator for the European project NCTS (New Computerized Transit System) Phase 5.
+  description: This is a simple message generator for the European project NCTS (New Computerized Transit System) Phase 5. It is best used with API testing tools such as Postman, SoapUI, Insomnia, Bruno etc. If you are interested in this project, feel free to contact me on <a href="https://www.linkedin.com/in/cedric-monnier-tester">LinkedIn.</a>
   version: 1.0.0
 servers:
   - url: https://monnier.cloud
