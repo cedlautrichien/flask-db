@@ -4,8 +4,7 @@ info:
   description: This is a simple message generator for the European project NCTS (New Computerized Transit System) Phase 5.
   version: 1.0.0
 servers:
-  - url: https://ncts5.monnier.cloud
-  - url: http://localhost:8080
+  - url: https://monnier.cloud
   
 tags:
 - name : CC007C messages
