@@ -4,7 +4,7 @@ info:
   description: This is a simple message generator for the European project NCTS (New Computerized Transit System) Phase 5. It is best used with API testing tools such as Postman, SoapUI, Insomnia, Bruno etc. If you are interested in this project, feel free to contact me on <a href="https://www.linkedin.com/in/cedric-monnier-tester">LinkedIn.</a>
   version: 1.0.0
 servers:
-  - url: https://monnier.cloud
+  - url: https://ncts.monnier.cloud
   
 tags:
 - name : CC007C messages
